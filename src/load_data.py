@@ -27,6 +27,17 @@ def load_schedule_data(prediction_season):
         .select(SCHEDULE_COLUMNS)
         .to_pandas()
     )
+    schedule = normalize_team_abbreviations(schedule)
+    schedule['gameday'] = pd.to_datetime(schedule['gameday'])
+    return schedule
+
+def load_current_data(prediction_season):
+    seasons = list(range(DATA_START_SEASON, prediction_season + 1))
+    pbp = (
+        nfl.load_pbp(seasons)
+        .select(PBP_COLUMNS)
+        .to_pandas()
+    )
     schedule = load_schedule_data(prediction_season)
     pbp = normalize_team_abbreviations(pbp)
     return pbp, schedule
@@ -38,7 +49,7 @@ def split_schedule(schedule, season, week):
     ].copy()
 
     if target_games.empty:
-        raise ValueError(f"No games found for {season} Week {week}")
+        raise ValueError(f"No games found for {season} Week {week}.")
 
     before_target_week = (
         schedule['season'].lt(season) 
