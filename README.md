@@ -106,6 +106,20 @@ Schedule and play-by-play data are loaded through `nflreadpy` from the nflverse 
 
 Each modeling row represents one game, with separate home-team and away-team inputs. The target, `home_win`, is 1 for a home win and 0 for an away win. Ties are excluded from classifier training and evaluation, while tied games can still contribute to historical team statistics and Elo updates.
 
+### Data Sources
+
+NFL schedule and play-by-play data are provided by the
+[nflverse](https://nflverse.nflverse.com/) ecosystem and accessed
+through the [nflreadpy](https://nflreadpy.nflverse.com/) Python package.
+
+The project transforms these source records into team-game statistics,
+historical quarterback metrics, and pregame matchup features. Feature
+engineering, model evaluation, and the weekly prediction workflow are
+implemented in this repository.
+
+The project's MIT license applies to its original code. Third-party
+data remains subject to its applicable source terms.
+
 ### Chronological validation
 
 | Stage | Training seasons | Evaluation seasons | Purpose |
@@ -260,7 +274,7 @@ Run production commands from the repository root.
 
 ```bash
 # Compare script-generated historical features with the Notebook 4 export
-python -m src.predict_week --season 2025 --week 10 --check-history
+python -m src.predict_week --season 2025 --week 10 --dry-run
 
 # Refit the selected configuration on 2010–2025
 python -m src.train_production
@@ -280,10 +294,10 @@ The documented pipeline writes the week's predictions to `outputs/predictions/20
 <details>
 <summary><strong>Quarterback overrides</strong></summary>
 
-Prepare a CSV with the columns `game_id`, `team`, and `qb_id`, using actual nflverse/GSIS player identifiers. Then supply it when generating predictions:
+Supply quarterback overrides as `--qb-override TEAM=QB_ID`, replacing the placeholders with a team abbreviation and an actual nflverse/GSIS player ID. Repeat the flag for multiple teams.
 
 ```bash
-python -m src.predict_week --season 2026 --week 4 --qb-overrides data/qb_overrides.csv
+python -m src.predict_week --season 2026 --week 4 --qb-override TEAM=QB_ID
 ```
 
 </details>
