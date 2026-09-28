@@ -1,4 +1,4 @@
-# NFL Game Prediction Model
+# NFL Win Probability Model
 
 **Pregame win probabilities built from football performance, quarterback history, and team strength.**
 
