@@ -218,8 +218,8 @@ The historical evaluation artifact and production artifact have different traini
 Requirements: Python 3.13.14 (tested on Windows), Git, and internet access for source-data downloads.
 
 ```bash
-git clone https://github.com/swcrockett/NFL-2026-Machine-Learning-Project.git
-cd NFL-2026-Machine-Learning-Project
+git clone https://github.com/swcrockett/nfl-win-probability-model.git
+cd nfl-win-probability-model
 python -m venv .venv
 ```
 
