@@ -380,7 +380,7 @@ Accuracy measures correct winner selections; log loss and Brier score measure pr
 
 | Season | Scored games | Accuracy | Log loss | Brier score | Updated |
 |---|---:|---:|---:|---:|---|
-| 2026 | 32 | 59.38% | 0.7105 | 0.2563 | Week 2 |
+| 2026 | 48 | 58.33% | 0.6707 | 0.2394 | Week 3 |
 
 </details>
 
@@ -398,9 +398,7 @@ Accuracy measures correct winner selections; log loss and Brier score measure pr
 
 - [ ] Track a full season of predictions recorded before kickoff.
 - [ ] Improve expected-starter detection and injury information.
-- [ ] Run feature-group ablations using consistent game coverage.
-- [ ] Compare independent predictions against betting-market implied probabilities.
-- [ ] Evaluate calibration methods using chronological validation.
+- [ ] Make predictions against Vegas betting lines.
 - [ ] Explore opponent-adjusted efficiency and weather features.
 - [ ] Build an interactive dashboard for weekly matchups and historical results.
 
