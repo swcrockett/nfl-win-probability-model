@@ -380,7 +380,7 @@ Accuracy measures correct winner selections; log loss and Brier score measure pr
 
 | Season | Scored games | Accuracy | Log loss | Brier score | Updated |
 |---|---:|---:|---:|---:|---|
-| 2026 | 106 | 56.56% | 0.6799 | 0.2444 | Week 7 |
+| 2026 | 120 | 59.17% | 0.6637 | 0.2367 | Week 8 |
 
 </details>
 
